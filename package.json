@@ -1,0 +1,65 @@
+{
+  "private": true,
+  "name": "k-component",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "prepublishOnly": "npm run build",
+    "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./packages && npm run lint:prettier && npm run check-deps",
+    "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
+    "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\" --loglevel warn",
+    "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
+    "size": "npm run build && size-limit",
+    "size:build": "cross-env PRO_COMPONENTS_CI='CI' webpack"
+  },
+  "module": "es/index.js",
+  "typings": "es/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "fabric verify-commit"
+  },
+  "lint-staged": {
+    "packages/**/*.{js,ts,jsx,tsx, md, json}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add ."
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.33.0",
+    "@ant-design/pro-skeleton": "^1.0.5",
+    "@umijs/ssr-darkreader": "^4.9.44",
+    "@umijs/yorkie": "^2.0.5",
+    "antd": "^4.18.9",
+    "moment": "^2.29.1",
+    "react": "^16.12.0 || ^17.0.0",
+    "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.2.3",
+    "react-lazyload": "^3.2.0",
+    "umi": "^3.5.21"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.3",
+    "@umijs/fabric": "^2.8.1",
+    "@umijs/test": "^3.0.5",
+    "chalk": "^5.0.0",
+    "dumi": "^1.1.39",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "lerna": "^4.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.1",
+    "yorkie": "^2.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@keith/tag",
+  "version": "0.0.0",
+  "keywords": [],
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "es",
+    "dist"
+  ],
+  "peerDependencies": {
+    "antd": "4.x",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
