@@ -1,5 +1,4 @@
 import { readdirSync } from 'fs';
-import chalk from 'chalk';
 import { defineConfig } from 'dumi';
 import { join } from 'path';
 
@@ -17,8 +16,6 @@ const alias = pkgList.reduce((pre, pkg) => {
     ...pre,
   };
 }, {});
-
-console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
 const isProduction = process.env.NODE_ENV === 'production';
 

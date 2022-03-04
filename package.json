@@ -17,7 +17,6 @@
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./packages && npm run lint:prettier && npm run check-deps",
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\" --loglevel warn",
-    "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "size": "npm run build && size-limit",
     "size:build": "cross-env PRO_COMPONENTS_CI='CI' webpack"
   },
@@ -58,6 +57,7 @@
     "father-build": "^1.17.2",
     "gh-pages": "^3.0.0",
     "lerna": "^4.0.0",
+    "lerna-changelog": "^2.2.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
