@@ -1,0 +1,64 @@
+button {
+  box-sizing: border-box;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.btn-type {
+  &-default {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+  }
+  &-default:active {
+    background-color: #c3c3c3;
+  }
+  &-primary {
+    color: #fff;
+    background-color: rgb(51, 146, 7);
+  }
+  &-primary:active {
+    background-color: aquamarine;
+  }
+  &-dashed {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #fff;
+    border: 1px dashed #cfcfcf;
+  }
+  &-dashed:active {
+    background-color: #c3c3c3;
+  }
+  &-link {
+    color: rgba(0, 0, 0, 0.85);
+    color: rgb(51, 146, 7);
+    background-color: #fff;
+  }
+  &-link:active {
+    color: aquamarine;
+  }
+  &-text {
+  }
+}
+
+.btn-shape {
+  &-round {
+    border-radius: 2px;
+  }
+  &-circle {
+    min-width: 32px;
+    border-radius: 50%;
+  }
+}
+
+.btn-size {
+  &-small {
+    padding: 2px 8px;
+  }
+  &-middle {
+    padding: 4px 12px;
+  }
+  &-large {
+    padding: 6px 16px;
+  }
+}
