@@ -11,7 +11,7 @@ export interface ButtonProps {
   style?: React.CSSProperties;
 }
 const Button: FC<ButtonProps> = (props) => {
-  const { children, shape, type } = props;
+  const { children } = props;
 
   return <button>{children}</button>;
 };
